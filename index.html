@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitacion :3</title>
+    <style>
+      body {
+        margin: 0;
+        background: #2e3537;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+        width: 100vw;
+      }
+      h1{
+        position: absolute;
+        top: 25%;
+        color: white;
+      }
+      a{
+        background: #9e2b1f;
+    padding: 15px;
+    border-radius: 20px;
+    border: 0.01px solid #ded8b5;
+    color: white;
+      }
+      .ticket {
+        position: absolute;
+        width: 345px;
+        height: 125px;
+        background-image: radial-gradient(
+            circle at top left,
+            transparent 17px,
+            #ded8b5 17px
+          ),
+          radial-gradient(circle at top right, transparent 17px, #ded8b5 17px),
+          radial-gradient(circle at bottom left, transparent 17px, #ded8b5 17px),
+          radial-gradient(
+            circle at bottom right,
+            transparent 17px,
+            #ded8b5 17px
+          );
+        background-size: 51% 51%;
+        background-repeat: no-repeat;
+        background-position: top left, top right, bottom left, bottom right;
+      }
+      .ticket::before,
+      .ticket::after {
+        box-sizing: border-box;
+        position: absolute;
+        color: #2b292b;
+        text-align: center;
+      }
+      .ticket::before {
+        content: "TOMAR UN CAFÉ";
+        white-space: pre;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 1;
+        background-size: 8px 8px;
+        background-repeat: repeat-y;
+        background-position: 0 0, 60 60, 100% 0, 100% 0;
+        width: 300px;/*mover el texto */
+        height: 76px;
+        left: 8px;
+        top: 25px;
+        padding-right: 20px;
+        padding-top: 22px;
+      }
+      .ticket::after{
+        content: "HOY";
+        font-family: monospace;
+        font-size: 20px;/*hacer crecer la palabra hoy*/
+        line-height: 1;
+        border: 2px solid #9e2b1f;
+        width: 80px;
+        height: 325px;
+        transform: rotate(-90deg);
+        padding-top: 285px;/*para mover la palabra hoy*/
+        top: -99px;/*mover el cuadro hacia arriba incluyendo la palabra hoy*/
+        left: 132px;/*mover el cuadro rojo hacia la derecha*/
+        border-radius: 10px;
+        background: linear-gradient(to bottom, transparent 275px, #9e2b1f 275px, #9e2b1f 277px, transparent 275px);
+      }
+      .desaparecer{
+        display: none;
+      }
+    </style>
+    <script type="module">
+        const $ = e => document.getElementById(e)
+        const $ticket = $("ticket")
+        const $btn = $("btn")
+
+        $btn.addEventListener("click", () => {
+            $ticket.classList.remove("desaparecer")
+            $btn.classList.add("desaparecer")
+        })
+    </script>
+  </head>
+  <body>
+    <h1>Magaly, te invito a:</h1>
+    <a id="btn">Desbloquear ticket</a>
+    <div id="ticket" class="ticket desaparecer"></div>
+  </body>
+</html>
